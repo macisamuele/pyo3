@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
  * `py_run!` macro [#512](https://github.com/PyO3/pyo3/pull/512)
  * Use existing fields and methods before calling custom __getattr__. [#505](https://github.com/PyO3/pyo3/pull/512)
 
+## Removed 
+
+ * `#[pyclass(subclass)]` is hidden a `unsound-subclass` feature because it's causing segmentation faults.
+
 ### Fixed
 
  * More readable error message for generics in pyclass [#503](https://github.com/PyO3/pyo3/pull/503)
