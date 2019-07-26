@@ -708,6 +708,8 @@ mod test {
 
     #[test]
     fn test_array_buffer() {
+        use assert_approx_eq::assert_approx_eq;
+
         let gil = Python::acquire_gil();
         let py = gil.python();
         let array = py
@@ -726,20 +728,22 @@ mod test {
 
         let slice = buffer.as_slice::<f32>(py).unwrap();
         assert_eq!(slice.len(), 4);
-        assert_eq!(slice[0].get(), 1.0);
-        assert_eq!(slice[3].get(), 2.5);
+        assert_approx_eq!(slice[0].get(), 1.0);
+        assert_approx_eq!(slice[3].get(), 2.5);
 
         let mut_slice = buffer.as_mut_slice::<f32>(py).unwrap();
         assert_eq!(mut_slice.len(), 4);
-        assert_eq!(mut_slice[0].get(), 1.0);
+        assert_approx_eq!(mut_slice[0].get(), 1.0);
         mut_slice[3].set(2.75);
-        assert_eq!(slice[3].get(), 2.75);
+        assert_approx_eq!(slice[3].get(), 2.75);
 
         buffer
             .copy_from_slice(py, &[10.0f32, 11.0, 12.0, 13.0])
             .unwrap();
-        assert_eq!(slice[2].get(), 12.0);
+        assert_approx_eq!(slice[2].get(), 12.0);
 
+        // TODO: Fix float_cmp
+        #[allow(clippy::float_cmp)]
         assert_eq!(buffer.to_vec::<f32>(py).unwrap(), [10.0, 11.0, 12.0, 13.0]);
     }
 }

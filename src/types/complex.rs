@@ -230,11 +230,13 @@ mod test {
 
     #[test]
     fn test_from_double() {
+        use assert_approx_eq::assert_approx_eq;
+
         let gil = Python::acquire_gil();
         let py = gil.python();
         let complex = PyComplex::from_doubles(py, 3.0, 1.2);
-        assert_eq!(complex.real(), 3.0);
-        assert_eq!(complex.imag(), 1.2);
+        assert_approx_eq!(complex.real(), 3.0);
+        assert_approx_eq!(complex.imag(), 1.2);
     }
 
     #[cfg(not(Py_LIMITED_API))]
