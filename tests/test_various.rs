@@ -121,6 +121,7 @@ fn pytuple_pyclass_iter() {
 #[pyclass(dict)]
 struct PickleSupport {}
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl PickleSupport {
     #[new]

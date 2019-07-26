@@ -216,6 +216,7 @@ struct BaseClassWithDrop {
     data: Option<Arc<AtomicBool>>,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl BaseClassWithDrop {
     #[new]
@@ -237,6 +238,7 @@ struct SubClassWithDrop {
     data: Option<Arc<AtomicBool>>,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl SubClassWithDrop {
     #[new]

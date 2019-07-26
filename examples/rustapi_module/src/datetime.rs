@@ -192,6 +192,7 @@ fn issue_219() -> PyResult<()> {
 #[pyclass(extends=PyTzInfo)]
 pub struct TzClass {}
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl TzClass {
     #[new]

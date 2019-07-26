@@ -5,6 +5,7 @@ use pyo3::prelude::*;
 #[pyclass(subclass)]
 pub struct Subclassable {}
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl Subclassable {
     #[new]

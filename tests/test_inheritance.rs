@@ -29,6 +29,7 @@ fn subclass() {
     .unwrap();
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl BaseClass {
     #[new]
@@ -43,6 +44,7 @@ struct SubClass {
     val2: usize,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl SubClass {
     #[new]

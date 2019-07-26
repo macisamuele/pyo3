@@ -4,6 +4,7 @@ use pyo3::PyRawObject;
 #[pyclass]
 struct EmptyClassWithNew {}
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl EmptyClassWithNew {
     #[new]
@@ -29,6 +30,7 @@ struct NewWithOneArg {
     _data: i32,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl NewWithOneArg {
     #[new]
@@ -53,6 +55,7 @@ struct NewWithTwoArgs {
     _data2: i32,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl NewWithTwoArgs {
     #[new]

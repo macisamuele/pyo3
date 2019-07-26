@@ -60,6 +60,7 @@ fn instance_method_with_args() {
 #[pyclass]
 struct ClassMethod {}
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl ClassMethod {
     #[new]
@@ -134,6 +135,7 @@ fn class_method_with_args() {
 #[pyclass]
 struct StaticMethod {}
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl StaticMethod {
     #[new]

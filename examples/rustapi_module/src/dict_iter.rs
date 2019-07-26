@@ -13,6 +13,7 @@ pub struct DictSize {
     expected: u32,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl DictSize {
     #[new]

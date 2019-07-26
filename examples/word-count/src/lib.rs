@@ -13,6 +13,7 @@ struct WordCounter {
     path: PathBuf,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl WordCounter {
     #[new]

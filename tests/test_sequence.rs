@@ -11,6 +11,7 @@ struct ByteSequence {
     elements: Vec<u8>,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl ByteSequence {
     #[new]

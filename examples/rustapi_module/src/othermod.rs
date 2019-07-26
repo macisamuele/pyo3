@@ -10,6 +10,7 @@ pub struct ModClass {
     _somefield: String,
 }
 
+#[allow(clippy::new_ret_no_self)]
 #[pymethods]
 impl ModClass {
     #[new]
